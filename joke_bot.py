@@ -13,7 +13,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 # i have no clue what this does
 
-TOKEN = 'OTg2MzM1MzMzOTI0ODc2MzQ4.GLpJkC.K7_cuh5A3nwVf7_nDZdL50MBd-tZZtji6ORt5c'
+TOKEN = 'OTg2MzM1MzMzOTI0ODc2MzQ4.G4dRPW.r86XtS9MV4K2aw_7UCWv7rISg3YXnksBnT1wX8'
 # this is the token i use to use the api
 
 client = discord.Client(intents=intents)
