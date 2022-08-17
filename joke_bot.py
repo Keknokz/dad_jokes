@@ -1,20 +1,16 @@
 import discord 
 from discord.ui import Button, View
 from discord.ext import commands
+from do_not_show import TOKEN
 # this is just the import 
 
 from joke_picker import rand_joke
+# this imports the function to get a random joke
 
-f1 = 'jokes/start_up.txt'
-f2 = 'jokes/punch_line.txt'
-# these are the files in which the jokes are held
 
 intents = discord.Intents.default()
 intents.message_content = True
 # i have no clue what this does
-
-TOKEN = 'OTg2MzM1MzMzOTI0ODc2MzQ4.G4dRPW.r86XtS9MV4K2aw_7UCWv7rISg3YXnksBnT1wX8'
-# this is the token i use to use the api
 
 client = discord.Client(intents=intents)
 # this is the client 
@@ -25,7 +21,7 @@ async def on_ready(): # async just means it waits for stuff to happen
     
 @client.event 
 async def on_message(message): # this waits for a message to be sent in the channel
-    start_joke, end_joke = rand_joke(f1, f2)
+    start_joke, end_joke = rand_joke()
     # this gets randoms jokes
    
     button = Button(label=start_joke, style=discord.ButtonStyle.green) 
