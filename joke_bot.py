@@ -1,7 +1,7 @@
 import discord 
 from discord.ui import Button, View
 from discord.ext import commands
-from do_not_show import TOKEN
+# there is an import here, but discord wont allow this to be public with it
 # this is just the import 
 
 from joke_picker import rand_joke
@@ -42,4 +42,4 @@ async def on_message(message): # this waits for a message to be sent in the chan
         if message.content.startswith("!joke"): # this checks if the message they just sent has the keywords in them
             await message.channel.send(view=view) # this makes the button appear
         
-client.run(TOKEN) # this just runs it
+client.run() # this just runs it
