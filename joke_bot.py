@@ -22,18 +22,16 @@ async def on_ready(): # async just means it waits for stuff to happen
 @client.event 
 async def on_message(message): # this waits for a message to be sent in the channel
     start_joke, end_joke = rand_joke()
-    # this gets random jokes
+    # this gets randoms jokes
    
     button = Button(label=start_joke, style=discord.ButtonStyle.green) 
     view = View() # need this to make the button show
     view.add_item(button)
-    # this is all to make the button 
-    # and to chose the style of the button
+    # this is all to make the button
     
     async def button_callback(interaction):
         await interaction.response.edit_message(content=end_joke, view=None)
-        # when the button is pressed it sends the body of the joke
-        # and takes away the button
+        # this is just what happens when the button is pressed
         
     button.callback = button_callback
             
