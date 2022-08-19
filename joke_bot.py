@@ -7,7 +7,6 @@ from do_not_show import TOKEN
 from joke_picker import rand_joke
 # this imports the function to get a random joke
 
-
 intents = discord.Intents.default()
 intents.message_content = True
 # i have no clue what this does
@@ -22,18 +21,21 @@ async def on_ready(): # async just means it waits for stuff to happen
 @client.event 
 async def on_message(message): # this waits for a message to be sent in the channel
     start_joke, end_joke = rand_joke()
-    # this gets randoms jokes
+    # this gets random jokes
    
     button = Button(label=start_joke, style=discord.ButtonStyle.green) 
+    # this make the buttons label be the start of the joke, and that the button is green
     view = View() # need this to make the button show
     view.add_item(button)
     # this is all to make the button
     
     async def button_callback(interaction):
         await interaction.response.edit_message(content=end_joke, view=None)
+        # this edits the msg to be the punch line of the joke and removes the button
         # this is just what happens when the button is pressed
         
     button.callback = button_callback
+    # this just means that the buttons callback is what we set it too
             
     if message.author == client.user: # this checks if the message came from the bot
         return # this makes it do nothing

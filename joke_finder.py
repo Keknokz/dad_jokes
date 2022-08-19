@@ -10,16 +10,23 @@ reddit = praw.Reddit(
  	user_agent = 'Python joke_bot for discord by u/keknokzz',
 	username = user
 )
+# this is the reddit instance
 
 def get_joke():
     # this gets jokes from reddit
     
     jokes = {}
     
-    for submission in reddit.subreddit('dadjokes').hot(limit=10):
+    for submission in reddit.subreddit('dadjokes').hot(limit=20): 
         joke_title = submission.title
         joke_body = submission.selftext
         
-        jokes[joke_title] = joke_body
+        if len(joke_title) > 80:
+            continue
+        # this makes sure that the label isnt longer than 80 characters
+        # if they are it just continues
+        elif len(joke_title) <= 80:
+            jokes[joke_title] = joke_body
+            # this makes the dict to return with the jokes in it           
         
     return jokes
