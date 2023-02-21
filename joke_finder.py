@@ -36,3 +36,6 @@ class JokeFinder:
                 jokes[joke_title] = joke_body
                 
         return jokes
+    
+    async def jokePicker(self, jokes) -> list:
+        

@@ -1,6 +1,6 @@
 import random
 
-from joke_finder import get_joke
+from joke_fi import get_joke
 # this is the function that gets the jokes from reddit
         
 def rand_joke():
